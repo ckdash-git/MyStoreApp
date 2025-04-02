@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var cart = Cart()
+//    @StateObject var cart = Cart()
+    @StateObject var cartManager = CartManager()
 
     var body: some View {
         TabView {
@@ -17,10 +18,11 @@ struct ContentView: View {
                     Label("Shop", systemImage: "cart")
                 }
             
-            CartView(cart: cart)
+            CartView()
                 .tabItem {
-                    Label("Cart", systemImage: "heart")
+                    Label("Cart", systemImage: "cart.fill")
                 }
         }
+        .environmentObject(cartManager)
     }
 }
